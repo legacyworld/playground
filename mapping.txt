@@ -1,0 +1,66 @@
+{
+   "properties": {
+     "@timestamp": {
+       "type": "date"
+     },
+     "author": {
+       "type": "keyword",
+       "fields": {
+         "keyword": {
+           "type": "text",
+           "analyzer": "kuromoji_analyzer"
+         }
+       }
+     },
+     "content": {
+       "type": "text",
+       "analyzer": "kuromoji_analyzer"
+     },
+     "description": {
+       "type": "text",
+       "analyzer": "kuromoji_analyzer"
+     },
+     "model_id": {
+       "type": "text",
+       "fields": {
+         "keyword": {
+           "type": "keyword",
+           "ignore_above": 256
+         }
+       }
+     },
+     "source": {
+       "properties": {
+         "name": {
+           "type": "text",
+           "fields": {
+             "keyword": {
+               "type": "keyword",
+               "ignore_above": 256
+             }
+           }
+         }
+       }
+     },
+     "text_embedding": {
+       "type": "dense_vector",
+       "index": true,
+       "similarity": "cosine",
+       "index_options": {
+         "type": "int8_hnsw",
+         "m": 16,
+         "ef_construction": 100
+       }
+     },
+     "title": {
+       "type": "text",
+       "analyzer": "kuromoji_analyzer"
+     },
+     "url": {
+       "type": "keyword"
+     },
+     "urlToImage": {
+       "type": "keyword"
+     }
+   }
+ }

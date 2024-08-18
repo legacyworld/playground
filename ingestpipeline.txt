@@ -1,0 +1,15 @@
+{
+ "processors": [
+   {
+     "inference": {
+       "model_id": ".multilingual-e5-small_linux-x86_64",
+       "input_output": [
+         {
+           "input_field": "description",
+           "output_field": "text_embedding"
+         }
+       ]
+     }
+   }
+ ]
+}

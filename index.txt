@@ -1,0 +1,32 @@
+{
+"index": {
+   "analysis": {
+     "char_filter": {
+       "normalize": {
+         "type": "icu_normalizer",
+         "name": "nfkc",
+         "mode": "compose"
+       }
+     },
+     "tokenizer": {
+       "ja_kuromoji_tokenizer": {
+         "mode": "search",
+         "type": "kuromoji_tokenizer"
+       }
+     },
+     "analyzer": {
+       "kuromoji_analyzer": {
+         "tokenizer": "ja_kuromoji_tokenizer",
+         "filter": [
+           "kuromoji_baseform",
+           "kuromoji_part_of_speech",
+           "cjk_width",
+           "ja_stop",
+           "kuromoji_stemmer",
+           "lowercase"
+         ]
+       }
+     }
+   }
+ }
+}
